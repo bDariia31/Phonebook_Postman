@@ -474,7 +474,7 @@
 					"name": "negative",
 					"item": [
 						{
-							"name": "valid Login(403)",
+							"name": "invalid Login(403)",
 							"event": [
 								{
 									"listen": "test",
@@ -582,7 +582,7 @@
 							"response": []
 						},
 						{
-							"name": "valid email(403)",
+							"name": "invalid email(403)",
 							"event": [
 								{
 									"listen": "test",
