@@ -755,6 +755,41 @@
 						},
 						{
 							"name": "Invalid token(401)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3e83652f-f4f3-4868-ba13-9acda54bc606",
+										"exec": [
+											"pm.test(\"Response time is less than 1000ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+											"});",
+											"",
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string: Unauthorized\", function () {",
+											"    pm.response.to.have.status(\"Unauthorized\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "de990e1f-91e0-4aa2-86c5-c28126444a94",
+										"exec": [],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "fc25b16e-d9c3-4bd6-9fd0-11211b2705a3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -764,10 +799,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "",
+										"value": "{{tokenn}}",
 										"type": "text"
 									}
-								]
+								],
+								"url": "{{BaseURL}}/v1/contacts"
 							},
 							"response": []
 						}
