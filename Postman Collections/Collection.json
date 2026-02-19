@@ -382,8 +382,32 @@
 									"listen": "prerequest",
 									"script": {
 										"id": "f508b97d-788f-44f4-a075-8e7e987c3ad1",
-										"exec": [],
-										"type": "text/javascript"
+										"exec": [
+											"pm.sendRequest({",
+											"    url: pm.environment.get(\"BaseURL\") + \"/v1/contacts/\" ,",
+											"    method: \"GET\",",
+											"    header: { \"Authorization\": pm.environment.get(\"token\") }",
+											"",
+											"},function(err,res){",
+											"    if (err) {",
+											"        console.log(\"Error while requesting contacts: \",err)",
+											"}else",
+											"{",
+											"    let data=res.json();",
+											"        if (data.contacts && data.contacts.length > 0) {",
+											"          let contactId=   data.contacts[0].id;",
+											"            pm.environment.set(\"id\", contactId);",
+											"            console.log(\"contact was added:\",contactId)",
+											"}else{",
+											"    console.warn(\"\");",
+											"}",
+											"        {",
+											"",
+											")"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								}
 							],
