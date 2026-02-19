@@ -752,6 +752,18 @@
 								"url": "{{BaseURL}}/v1/contacts/{{id}}"
 							},
 							"response": []
+						},
+						{
+							"name": "Invalid token(401)",
+							"id": "fc25b16e-d9c3-4bd6-9fd0-11211b2705a3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
 						}
 					],
 					"id": "d972b614-57e8-4ab9-a9bd-c0611932bbce"
